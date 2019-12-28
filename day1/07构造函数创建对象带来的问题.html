@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>07</title>
+  <script>
+    // function Person(name, age) {
+    //   this.name = name;
+    //   this.age = age;
+    //   this.eat = function () {
+    //     console.log("吃炸鸡哦");
+    //   }
+    // }
+    // var per1 = new Person("小红", 20);
+    // var per2 = new Person("小黑", 30);
+    // //查看结构
+    // console.dir(per1);
+    // console.dir(per2);
+    // console.log(per1.eat == per2.eat); //false
+    //===================================================================
+
+    //这样子写 解决了 内存空间浪费的问题，但是有可能出现命名冲突
+    function myEat() {
+      console.log("吃香蕉");
+    }
+    //比如
+    // var myEat = 10;
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+      this.eat = myEat;
+    }
+
+    var per1 = new Person("小红", 20);
+    var per2 = new Person("小黑", 30);
+    // console.dir(per1);
+    // console.dir(per2);
+    console.log(per1.eat == per2.eat); //true
+
+    //===================================================================
+    per1.eat();
+    per2.eat();
+    //1.不是同一个方法
+    console.log(per1.eat == per2.eat) //1.false
+    //2.当上面声明了一个myEat函数后，指向的都是同一个了，结果为true
+    console.log(per1.eat == per2.eat) //2.true
+
+    for (var i = 0; i < 100; i++) {
+      var per = new Person("gaga", 21);
+      per.eat();
+    }
+
+    //通过原型来解决---->数据共享，节省内存空间，作用之一
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

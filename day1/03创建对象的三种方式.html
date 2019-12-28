@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03 </title>
+  <script>
+    //对象是什么
+    //对象：特指的某个事物，具有属性和方法（一组无序的属性的集合）
+    //特征---->属性
+    //行为---->方法
+
+    //创建对象的三种方式
+    //1   字面量的方式
+    //2   调用系统的构造函数
+    //3   自定义构造函数方式
+
+    // ===================================================
+
+    // 1. 实例对象
+    var per1 = {
+      name: 'mmj',
+      age: 20,
+      sex: '女',
+      eat: function () {
+        console.log("吃火锅")
+      },
+      drink: function () {
+        console.log("喝奶茶")
+      },
+      read: function () {
+        console.log("看小说《庆余年》")
+      }
+    };
+    console.log(per1 instanceof Object) // ----> true
+
+    // ===================================================
+
+    // 2. 调用系统的构造函数
+    var per2 = new Object();
+    per2.name = "llf";
+    per2.age = 23;
+    per2.sex = "男";
+    per2.eat = function () {
+      console.log("吃炸鸡")
+    };
+    per2.play = function () {
+      console.log("玩over watch")
+    }
+    console.log(per2 instanceof Object); // ----> true
+
+    // ===================================================
+
+    // 3. 自定义构造函数
+    function Person(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+      this.play = function () {
+        console.log("玩游戏")
+      };
+    }
+    var per3 = new Person("jack", 18, "男");
+    console.log(per3 instanceof Person); //-----> true
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
