@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>09</title>
+  <script>
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    //通过 原型 来添加方法,解决数据共享,节省内存空间
+    Person.prototype.eat = function () {
+      console.log("原型添加的EAT方法！")
+    };
+
+    var p1 = new Person("mmj", 20);
+    var p2 = new Person("jack", 22);
+    console.log(p1.eat == p2.eat); //-----> true
+
+    console.dir(p1);
+    console.dir(p2);
+    console.dir(Person);
+    p1.__proto__.eat(); //原型添加的EAT方法！
+
+
+    //window是对象
+    //document是属性，也是一个对象
+    //write()是方法
+    // window.document.write("haha");
+    //对象.style.color
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
